@@ -1,0 +1,34 @@
+using System;
+
+public class Loteria
+{
+    public static void Main(string[] args)
+    {
+    
+    int[,] loteriaAposta = new int[13,3];
+    int[,] loteriaResultado = new int[13,3];
+    int ponto = 0;
+    int rodada = 0;
+    int aposta;
+    Random rand = new Random();
+    
+    for(int i = 0; i < 13; i++){
+        rodada++;
+        Console.WriteLine("Rodada {0}: Aposte 1 para a vitória do time. Aposte 2 para o empate do time. Aposte 3 para a derrota do time.", rodada);
+        aposta = int.Parse(Console.ReadLine());
+        loteriaAposta[i, aposta - 1] = 1;
+        }
+    for(int i = 0; i < 13; i++){
+        int colunaAleatoria = rand.Next(0,3);
+        loteriaResultado[i, colunaAleatoria] = 1;
+        }
+    for(int i = 0; i < 13; i++){
+        for(int j = 0; j < 3; j++){
+            if(loteriaAposta[i,j] == 1 && loteriaResultado[i,j] == 1){
+            ponto++;
+                }
+            }
+        }
+        Console.WriteLine("Você fez {0} pontos!", ponto);        
+    }
+}
