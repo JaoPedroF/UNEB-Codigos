@@ -1,0 +1,60 @@
+using System;
+
+public class SapoFibo
+{
+    public static void Main(string[] args)
+    {
+        int[] folhas = new int[11];
+        int[] fibo = new int[6];
+        int posicaoSapo = -1;
+        int i;
+        int final;
+        int saltos = 0;
+
+        folhas[0] = 0;
+        folhas[1] = 0;
+        folhas[2] = 0;
+        folhas[3] = 1;
+        folhas[4] = 1;
+        folhas[5] = 0;
+        folhas[6] = 1;
+        folhas[7] = 0;
+        folhas[8] = 0;
+        folhas[9] = 0;
+        folhas[10] = 0;
+
+        fibo[0] = 1;
+        fibo[1] = 2;
+        fibo[2] = 3;
+        fibo[3] = 5;
+        fibo[4] = 8;
+        fibo[5] = 13;
+
+        while(posicaoSapo < 11)
+        {
+
+            int posicaoAnterior = posicaoSapo;
+
+            for(i = 0; i < 6; i++){
+
+                final = posicaoSapo + fibo[i];
+
+                if(final == 11){
+                    posicaoSapo = final;
+                    saltos++;
+                    break;
+                }
+                if(final < 11 && folhas[final] == 1){
+
+                    posicaoSapo = final;
+                    saltos++;
+                    break;
+                }
+
+            }
+
+        }
+        Console.WriteLine("O sapo está na posição {0}", posicaoSapo);
+        Console.WriteLine("Número mínimo de saltos: {0}", saltos);
+    }
+}
