@@ -1,0 +1,43 @@
+using System;
+
+class Program {
+
+  static void Main() {
+
+    int[,] num=new int[5,5];
+    int linhaAtual = 4;
+    int colunaAtual = 0;
+    int pulo = 2;
+    string caminho = "(4,0)";
+    
+    num[4,0] = 1;
+    
+    do
+    {
+        linhaAtual = linhaAtual - pulo;
+        num[linhaAtual, colunaAtual] = 1;
+        caminho += "-> ("+ linhaAtual + ", 0)";
+        
+    } while(linhaAtual > 0);
+    
+    do
+    {
+        colunaAtual = colunaAtual + pulo;
+        num[linhaAtual, colunaAtual] = 1;
+        caminho += "-> (0, "+ colunaAtual +")";
+        
+    } while(colunaAtual < 4);
+    
+        Console.WriteLine("Os numeros 1 indicam por onde o sapo caminhou. O sapo vai de:");
+        Console.WriteLine(caminho);
+    for(linhaAtual = 0; linhaAtual < 5; linhaAtual++){
+         for(colunaAtual = 0; colunaAtual < 5; colunaAtual++){
+
+    Console.Write("{0}\t", num[linhaAtual, colunaAtual]);
+    
+         }
+    Console.Write("\n");
+     }
+
+    }
+  }
