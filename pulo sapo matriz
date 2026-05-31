@@ -1,0 +1,72 @@
+using System;
+
+struct FolhaPagamento
+{
+    public int inscricao;
+    public string nome;
+    public double salarioHorasNormais;
+    public double salarioHorasExtras;
+    public int horasNormaisTrabalhadas;
+    public double horasExtras;
+    public double descontoInss;
+    public double salarioLiquido;
+
+}
+
+public class Funcionario
+{
+    public static void Main(string[] args)
+    {
+
+    FolhaPagamento funcionario;
+    double salarioReferencia = 20.0;
+    double salarioBruto;
+
+Console.Write("Quantos funcionários deseja cadastrar? ");
+        int n = int.Parse(Console.ReadLine());
+
+        for (int i = 1; i <= n; i++){
+
+    Console.WriteLine("Insira o número de inscrição: ");
+    funcionario.inscricao = int.Parse(Console.ReadLine());
+
+    Console.WriteLine("Insira o nome do funcionário: ");
+    funcionario.nome = Console.ReadLine();
+
+    Console.WriteLine("Insira as horas normais trabalhadas: ");
+    funcionario.horasNormaisTrabalhadas = int.Parse(Console.ReadLine());
+
+    funcionario.salarioHorasNormais = salarioReferencia * 1.3;
+    funcionario.salarioHorasNormais = funcionario.horasNormaisTrabalhadas * funcionario.salarioHorasNormais;
+
+    double valorHoraNormal = salarioReferencia * 1.3;
+
+    funcionario.salarioHorasNormais = funcionario.horasNormaisTrabalhadas * valorHoraNormal;
+
+        Console.WriteLine("Insira as horas extras trabalhadas: ");
+        funcionario.horasExtras = double.Parse(Console.ReadLine());
+
+        double valorHoraExtra = valorHoraNormal * 1.3;
+
+        funcionario.salarioHorasExtras = valorHoraExtra * funcionario.horasExtras;
+
+    salarioBruto = funcionario.salarioHorasNormais + funcionario.salarioHorasExtras;
+    funcionario.descontoInss = salarioBruto * 0.11;
+    funcionario.salarioLiquido = salarioBruto - funcionario.descontoInss;
+
+
+    funcionario.descontoInss = Math.Truncate(funcionario.descontoInss * 100) / 100.0;
+    funcionario.salarioLiquido = Math.Truncate(funcionario.salarioLiquido * 100) / 100.0;
+
+    Console.WriteLine("-------Folha de Pagamento-------");
+    Console.WriteLine("Inscrição: {0}", funcionario.inscricao);
+    Console.WriteLine("Nome: {0}", funcionario.nome);
+    Console.WriteLine("Salário de horas normais: R${0}", funcionario.salarioHorasNormais);
+    Console.WriteLine("Salário de horas extras: R${0}", funcionario.salarioHorasExtras);
+    Console.WriteLine("Dedução INSS: R${0}", funcionario.descontoInss);
+    Console.WriteLine("Salário líquido: R${0}", funcionario.salarioLiquido);
+    Console.WriteLine("--------------------------------");
+        }
+        Console.WriteLine("Fim do programa.");
+    }
+}
