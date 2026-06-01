@@ -33,8 +33,6 @@ public class SapoFibo
         while(posicaoSapo < 11)
         {
 
-            int posicaoAnterior = posicaoSapo;
-
             for(i = 0; i < 6; i++){
 
                 final = posicaoSapo + fibo[i];
